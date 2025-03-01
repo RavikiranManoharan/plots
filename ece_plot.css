@@ -1,0 +1,18 @@
+body{
+background-color: black;
+color: aqua;
+font-family: courier new;
+}
+button{
+background-color: black;
+color: aqua;
+border-color: aqua;
+border-radius: 9px;
+}
+
+input{
+background-color: black;
+color: aqua;
+border-color: aqua;
+border-radius: 5px;
+}

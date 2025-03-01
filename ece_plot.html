@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Plots</title>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		<script src = "ece_plot.js"></script>
+		<link rel="stylesheet" href="ece_plot.css">
+	</head>
+	
+	<body>
+		<center>
+			<h1>PLOT YOUR GRAPH</h1>
+		
+		<br>
+		<br>
+		<div id="myPlot" style="width:100%;max-width:700px"></div>
+		
+		<br>
+		<br>
+		
+		<label>Enter the number of values</label>
+		<input id="nv" placeholder="No. of values">
+		<br>
+		<br>
+		<label>Enter the maximum limit of x-axis</label>
+		<input id="xl" placeholder="x-limit">
+		<br>
+		<br>
+		<label>Enter the maximum limit of y-axis</label>
+		<input id="yl" placeholder="y-limit">
+		<br>
+		<br>
+		<button onclick="crtinp()">submit</button>
+		
+		<br>
+		
+		<div id="inputdiv"></div>
+		
+	</center>
+	</body>
+</html>
+
