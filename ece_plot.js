@@ -24,7 +24,9 @@ function crtinp()
 	
 	var i;
 	
-	for(i=1;i<=num;i++)
+	var nums = Number(num)+1;
+	
+	for(i=1;i<=nums;i++)
 	{
 	
 		const inputTag = document.createElement('input');
@@ -34,7 +36,11 @@ function crtinp()
 		const label = document.createElement('label');
 		label.htmlFor = `input${i}`;
 		label.textContent = `value${i}: `;
-	
+		
+		if(i==1)
+		{
+			inputTag.value = 0;
+		}
 		
 		inputDiv.appendChild(label);
 		
@@ -58,9 +64,13 @@ function crtinp()
 	
 	var j;
 	
-	var num2 = num*2;
+	var num2 = (num*2)+2;
 	
-	var ini = Number(num)+1;
+	console.log(num2)
+	
+	var ini = Number(num)+2;
+	
+	console.log(ini)
 	
 	for(j=ini;j<=num2;j++)
 	{
@@ -72,7 +82,11 @@ function crtinp()
 		const label1 = document.createElement('label');
 		label1.htmlFor = `input${j}`;
 		label1.textContent = `value${j}: `;
-	
+		
+		if(j==ini)
+		{
+			inputTag1.value = 0;
+		}
 		
 		inputDiv.appendChild(label1);
 		
@@ -84,6 +98,7 @@ function crtinp()
 	}	
 	
 	const button = document.createElement('button');
+	button.id="btn1";
 	button.textContent="submit";
 	button.addEventListener('click',read)
 	
@@ -93,12 +108,12 @@ function crtinp()
 }
 
 function read()
-{	
+{		
 	var number = document.getElementById('nv').value;
 	
-	var number2 = number*2;
+	var number2 = (number*2)+2;
 	
-	var ini2 = Number(number)+1;
+	var ini2 = Number(number)+2;
 	
 	var i;
 	
@@ -115,14 +130,17 @@ function read()
 		const data2 = document.getElementById(`input${j}`).value;
 		y.push(data2);
 	}
+
 	
 	const div = document.getElementById("inputdiv");
 	
 	const subbtn=document.createElement('button');
+	subbtn.id="pltbtn";
 	subbtn.textContent="plot";
 	subbtn.addEventListener('click',plot);
 	
 	const clr = document.createElement('button');
+	clr.id="clrbtn";
 	clr.textContent = "clear plot";
 	clr.addEventListener('click',reload);
 	
@@ -144,10 +162,13 @@ function plot()
 	
 	xlim=Number(xlim);
 	ylim=Number(ylim);
+	
+	var xut = document.getElementById("xut").value;
+	var yut = document.getElementById("yut").value;
 
 const data = [{x:x,y:y,mode:"lines",marker: {color:"rgba(0,0,255,0.6)"}}];
 
-const layout = {xaxis: {range: [0,xlim],title: "xaxis"},yaxis: {range: [0,ylim], title: "yaxis"}};
+const layout = {xaxis: {range: [0,xlim],title: xut},yaxis: {range: [0,ylim], title: yut}};
 
 Plotly.newPlot("myPlot", data, layout);
 
