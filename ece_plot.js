@@ -42,6 +42,7 @@ function crtinp()
 		if(i==1)
 		{
 			inputTag.value = 0;
+			inputTag.readOnly = true;
 		}
 		
 		inputDiv.appendChild(label);
@@ -88,6 +89,7 @@ function crtinp()
 		if(j==ini)
 		{
 			inputTag1.value = 0;
+			inputTag1.readOnly = true;
 		}
 		
 		inputDiv.appendChild(label1);
