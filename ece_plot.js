@@ -181,7 +181,7 @@ function plot()
 	var xut = document.getElementById("xut").value;
 	var yut = document.getElementById("yut").value;
 
-	const data = [{x:x,y:y,mode:"lines",marker: {color:"black"}}];
+	const data = [{x:x,y:y,mode:"lines",line: {shape: 'spline',spline: {tension: 0.5}},marker: {color:"black"}}];
 
 	const layout = {xaxis: {range: [0,xlim],title: xut},yaxis: {range: [0,ylim], title: yut}};
 
