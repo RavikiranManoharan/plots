@@ -4,6 +4,8 @@ var y = []
 
 var btnRestrict = 0;
 
+var inputCpr = 0;
+
 function crtinp()
 {	
 	//creating input tags
@@ -69,11 +71,7 @@ function crtinp()
 	
 	var num2 = (num*2)+2;
 	
-	console.log(num2)
-	
 	var ini = Number(num)+2;
-	
-	console.log(ini)
 	
 	for(j=ini;j<=num2;j++)
 	{
@@ -159,7 +157,16 @@ function read()
 		
 		div.appendChild(clr);
 		div.appendChild(document.createElement('br'));
+		div.appendChild(document.createElement('br'));
+			
+		const nullBtn = document.createElement('button');
+		nullBtn.textContent = "Remove (0,0)";
+		nullBtn.addEventListener('click',input1);
+		nullBtn.id="nllbtn";
+		
+		div.appendChild(nullBtn);
 	}
+	
 }
 
 function plot()
@@ -174,11 +181,11 @@ function plot()
 	var xut = document.getElementById("xut").value;
 	var yut = document.getElementById("yut").value;
 
-const data = [{x:x,y:y,mode:"lines",marker: {color:"black"}}];
+	const data = [{x:x,y:y,mode:"lines",marker: {color:"black"}}];
 
-const layout = {xaxis: {range: [0,xlim],title: xut},yaxis: {range: [0,ylim], title: yut}};
+	const layout = {xaxis: {range: [0,xlim],title: xut},yaxis: {range: [0,ylim], title: yut}};
 
-Plotly.newPlot("myPlot", data, layout);
+	Plotly.newPlot("myPlot", data, layout);
 
 }
 
@@ -186,4 +193,48 @@ function reload()
 {
 	location.reload();
 	btnRestrict = 0;
+}
+
+function input1()
+{
+	inputCpr++;
+	
+	if(inputCpr%2==1)
+	{
+		
+		var num = document.getElementById("nv").value;
+		
+		num2 = Number(num)+2;
+		
+		var inpt = document.getElementById("input1");
+		inpt.value = "";
+		
+		var inpt2 = document.getElementById(`input${num2}`);
+		inpt2.value = "";
+		
+		var btn = document.getElementById("nllbtn");
+		btn.textContent="Include (0,0)";
+		
+		x.splice(0,1);
+		y.splice(0,1);
+		
+	}
+	else if(inputCpr%2==0)
+	{
+		var num = document.getElementById("nv").value;
+		
+		num2 = Number(num)+2;
+		
+		var inpt = document.getElementById("input1");
+		inpt.value = "0";
+		
+		var inpt2 = document.getElementById(`input${num2}`);
+		inpt2.value = "0";
+		
+		var btn = document.getElementById("nllbtn");
+		btn.textContent="Remove (0,0)";
+		
+		x.unshift('0');
+		y.unshift('0');
+	}
 }
