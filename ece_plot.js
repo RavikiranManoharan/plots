@@ -2,6 +2,8 @@ var x = []
 
 var y = []
 
+var btnRestrict = 0;
+
 function crtinp()
 {	
 	//creating input tags
@@ -130,28 +132,32 @@ function read()
 		const data2 = document.getElementById(`input${j}`).value;
 		y.push(data2);
 	}
-
+	
+	btnRestrict++;
 	
 	const div = document.getElementById("inputdiv");
 	
-	const subbtn=document.createElement('button');
-	subbtn.id="pltbtn";
-	subbtn.textContent="plot";
-	subbtn.addEventListener('click',plot);
-	
-	const clr = document.createElement('button');
-	clr.id="clrbtn";
-	clr.textContent = "clear plot";
-	clr.addEventListener('click',reload);
-	
-	div.appendChild(document.createElement('br'));
-	
-	div.appendChild(subbtn);
-	div.appendChild(document.createElement('br'));
-	div.appendChild(document.createElement('br'));
-	
-	div.appendChild(clr);
-	div.appendChild(document.createElement('br'));
+	if(btnRestrict==1)
+	{
+		const subbtn=document.createElement('button');
+		subbtn.id="pltbtn";
+		subbtn.textContent="plot";
+		subbtn.addEventListener('click',plot);
+		
+		const clr = document.createElement('button');
+		clr.id="clrbtn";
+		clr.textContent = "clear plot";
+		clr.addEventListener('click',reload);
+		
+		div.appendChild(document.createElement('br'));
+		
+		div.appendChild(subbtn);
+		div.appendChild(document.createElement('br'));
+		div.appendChild(document.createElement('br'));
+		
+		div.appendChild(clr);
+		div.appendChild(document.createElement('br'));
+	}
 }
 
 function plot()
@@ -177,4 +183,5 @@ Plotly.newPlot("myPlot", data, layout);
 function reload()
 {
 	location.reload();
+	btnRestrict = 0;
 }
