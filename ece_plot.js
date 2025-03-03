@@ -182,6 +182,7 @@ function plot()
 	var yut = document.getElementById("yut").value;
 
 	var name = document.getElementById("nme").value;
+	console.log(name);
 
 	const data = [{x:x,y:y,mode:"lines",line: {shape: 'spline',spline: {tension: 0.5}},marker: {color:"black"}}];
 
