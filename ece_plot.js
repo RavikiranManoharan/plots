@@ -180,9 +180,10 @@ function plot()
 	
 	var xut = document.getElementById("xut").value;
 	var yut = document.getElementById("yut").value;
-
+	
 	var name = document.getElementById("nme").value;
-	console.log(name);
+	
+	name = name.toUpperCase();
 
 	const data = [{x:x,y:y,mode:"lines",line: {shape: 'spline',spline: {tension: 0.5}},marker: {color:"black"}}];
 
