@@ -181,9 +181,11 @@ function plot()
 	var xut = document.getElementById("xut").value;
 	var yut = document.getElementById("yut").value;
 
+	var name = document.getElementById("nme").value;
+
 	const data = [{x:x,y:y,mode:"lines",line: {shape: 'spline',spline: {tension: 0.5}},marker: {color:"black"}}];
 
-	const layout = {xaxis: {range: [0,xlim],title: xut},yaxis: {range: [0,ylim], title: yut},title: "Graph"};
+	const layout = {xaxis: {range: [0,xlim],title: xut},yaxis: {range: [0,ylim], title: yut},title: name};
 
 	Plotly.newPlot("myPlot", data, layout);
 
